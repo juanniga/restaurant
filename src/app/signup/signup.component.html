@@ -1,0 +1,92 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">
+            Registrarme
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="signupForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Nombre Restaurant</mat-label>
+                    <input matInput formControlName="name_rest" required>
+                    <mat-error *ngIf="signupForm.controls.name_rest.touched && signupForm.controls.name_rest.invalid">
+                        <span *ngIf="signupForm.controls.name_rest.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="signupForm.controls.name_rest.errors.pattern">Este dato es incorrecto</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Correo Electronico</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-error *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid">
+                        <span *ngIf="signupForm.controls.email.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="signupForm.controls.email.errors.pattern">Este dato es incorrecto</span>
+                    </mat-error>
+                </mat-form-field>
+                
+                
+                
+            </div>
+            <div fxFlex fxLayout="row wrap">
+                
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="password" required type="password">
+                    <mat-error *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">
+                        <span *ngIf="signupForm.controls.password.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="signupForm.controls.password.errors.pattern">Este dato es incorrecto</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Ubicación</mat-label>
+                    <input matInput formControlName="location" required>
+                    <mat-error *ngIf="signupForm.controls.location.touched && signupForm.controls.location.invalid">
+                        <span *ngIf="signupForm.controls.location.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="signupForm.controls.location.errors.pattern">Este dato es incorrecto</span>
+                    </mat-error>
+                </mat-form-field>
+               
+               <!--- <button  mat-raised-button color="accent" (click)="openBottomSheet()">Open file</button>-->
+                
+               
+               <!--- <input type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();" />
+    <input type="file" style="display:none;" id="file" name="file"/>-->
+                
+                
+            </div>
+            <div fxFlex fxLayout="row wrap">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Especialidad</mat-label>
+                    <textarea matInput formControlName="specialty" required></textarea>
+                    <mat-error *ngIf="signupForm.controls.specialty.touched && signupForm.controls.specialty.invalid">
+                        <span *ngIf="signupForm.controls.specialty.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="signupForm.controls.specialty.errors.pattern">Este dato es incorrecto</span>
+                    </mat-error>
+                </mat-form-field>
+              
+            </div>
+            <div class="image">
+                <div>
+                    <img  [src]="imgUrl" width="50px" height="50px">
+                </div>
+                <div class="btn">
+                    <button type="button" mat-raised-button (click)="fileInpu.click()"><mat-icon>edit</mat-icon></button>
+                    <input hidden accept="image/*" (change)="selectImage($event)" #fileInpu type="file" id="file">
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        
+        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button class="title-center" color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(signupForm.valid && signupForm.dirty)">Registrar</button>
+    <button mat-raised-button class="title-center" color="primary" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

@@ -1,0 +1,37 @@
+
+.title-center{
+    flex:  1 1 auto;
+    text-align: center;
+    color: #fff;
+}
+mat-form-field{
+    padding: 5px;
+
+}
+.image{
+    position: relative;
+    display: flex;
+    
+    justify-items: center;
+    margin: auto;
+}
+.image img{
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.image .btn{
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+}
+.image .btn button{
+    position: relative;
+    display: flex;
+    margin: auto;
+    top: 50%;
+    background-color: #0586f0;
+    color: #fff;
+}

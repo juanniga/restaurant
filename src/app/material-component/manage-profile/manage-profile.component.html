@@ -1,0 +1,142 @@
+<mat-card>
+  <div class="principal">
+    <div><b><span>Perfil Del Restaurante</span></b></div>
+
+  </div>
+
+
+</mat-card>
+
+<hr>
+<mat-card>
+
+  <div class="container" *ngFor="let perfils of dataSource">
+    <div class="left">
+      <div class="multimedia">
+        <div class="uno">
+          <div class="logo">
+            <h4>RESTAURANTE {{perfils.name_rest | uppercase}}</h4>
+          </div>
+          <div class="qr">
+            <!--<ngx-qrcode [value]='{{perfils.ui}}' [width]="300"></ngx-qrcode>
+            <qrcode [qrdata]="'myAngularxQrCode'" [width]="256"></qrcode>-->
+            <section><ngx-qrcode-styling  [config]="config" [data]=funciona()></ngx-qrcode-styling></section>
+            <!--<section><ngx-qrcode-styling
+             
+              [config]="config" 
+              [type]="'canvas'"
+              [shape]="'square'"
+              [width]="250"
+              [height]="250"
+              [margin]="2"
+              [data]=funciona()>
+            </ngx-qrcode-styling></section>-->
+             <!-- <ngx-qrcode-styling [template]="'default'" [data]="'juan felipe'" [width]="200" [height]="200" [margin]="3"
+              [backgroundOptions]="{ color: '#fff0' }" [frameOptions]="{
+    style: 'FE_020',
+    height: 400,
+    width: 370,
+    x: 88,
+    y: 410,
+    texts: [{
+      textContent: 'Create 2022',
+      fill: '#4d4d4d',
+      x: '31%',
+      y: '58%',
+      fontSize: '15pt',
+      fontFamily: 'cursive'
+    },{
+      textContent: 'Author: DaiDH',
+      fill: '#4d4d4d',
+      x: '29%',
+      y: '90%',
+      fontSize: '15pt',
+      fontFamily: 'cursive'
+    }]
+  }" [dotsOptions]="{color: '#4a4a4a'}"></ngx-qrcode-styling>-->
+            
+
+          </div>
+          <div class="principal btn">
+
+            <button type="button" mat-raised-button (click)="handleQrAmin()"><mat-icon>print</mat-icon></button>
+
+          </div>
+        </div>
+        <div class="dos">
+          <div class="logo">
+            <h4>QR DE PAGOS</h4>
+          </div>
+          <div class="qr">
+            <img [src]="qrImgUrl" width="100px">
+          </div>
+          <div class="principal btn">
+
+            <button type="button" mat-raised-button><mat-icon>print</mat-icon></button>
+            <button type="button" mat-raised-button (click)="fileInput.click()"><mat-icon>edit</mat-icon></button>
+            <input hidden accept="image/*" (change)="selectImage($event,'qrImgUrl')" #fileInput type="file" id="files">
+            <button type="button" mat-raised-button [ngClass]="{
+              'selected-button_qr': isButtonSelected_qr,
+              'deselected-button_qr': !isButtonSelected_qr}"
+             [disabled]="validateSubmit_qr()"  (click)="handleSubmitQr()" id="save_qr"><mat-icon>save</mat-icon></button>
+
+
+
+
+
+          </div>
+
+        </div>
+        <div class="tres">
+          <div class="logo">
+            <h4>IMAGEN {{perfils.name_rest | uppercase}}</h4>
+          </div>
+          <div class="qr">
+            <img [src]="imgUrl" width="100px">
+          </div>
+          <div class="principal btn">
+
+            <button type="button" mat-raised-button (click)="fileInpu.click()"><mat-icon>edit</mat-icon></button>
+            <input hidden accept="image/*" (change)="selectImage($event,'imgUrl')" #fileInpu type="file" id="file">
+            <button type="button" mat-raised-button [ngClass]="{
+              'selected-button_img': isButtonSelected_img,
+              'deselected-button_img': !isButtonSelected_img}" [disabled]="validateSubmit_img()" (click)="handleSubmitImg()"><mat-icon>save</mat-icon></button>
+          </div>
+        </div>
+
+      </div>
+      <hr>
+      <div class="speciality">
+        <p><mat-icon>dinner_dining</mat-icon> {{perfils.specialty}}</p>
+      </div>
+      <hr>
+      <div class="ubication">
+        <p><mat-icon>room</mat-icon> {{perfils.location}} </p>
+      </div>
+      <hr>
+      <div class="numberContact">
+        <p><mat-icon>phone</mat-icon> {{perfils.phone}}</p>
+      </div>
+      <hr>
+      <div class="speciality">
+        <p><mat-icon>calendar_today</mat-icon> Hora de apertura {{perfils.start_t}} Hora de cierre {{perfils.end_t}}
+        </p>
+      </div>
+
+    </div>
+    <div class="right">
+
+
+
+    </div>
+
+  </div>
+  <div class="principal">
+    <div><b><span></span></b></div>
+    <div class="btn_two">
+      <button color="primary" matTooltip="Edit" (click)="handleEditAction(dataSource)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>

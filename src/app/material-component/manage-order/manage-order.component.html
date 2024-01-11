@@ -1,0 +1,62 @@
+<mat-card>
+    <div class="principal">
+        <div><b><span>Vista de Ordenes</span></b></div>
+        
+    </div>
+
+
+</mat-card>
+<hr>
+<!--<mat-card>
+    <div class="principal">
+        <div><b><span>Busqueda de Ordenes Por:</span></b></div>
+    </div>
+    <div class="principal">
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+    </div>
+</mat-card>
+
+<hr>-->
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="number_order">
+            <th mat-header-cell *matHeaderCellDef>Numero Orden</th>
+            <td mat-cell *matCellDef="let element">{{element.number_order}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.status}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="view">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="View" (click)="handleViewAction(element)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="View" (click)="handleViewAction(element)">
+                    <mat-icon>summarize</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="View" (click)="handleViewDelete(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns;"></tr>
+    </table>
+</div>

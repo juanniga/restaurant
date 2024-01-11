@@ -1,0 +1,63 @@
+<mat-card>
+    <div class="principal">
+        <div class="uno"><b><span>Administrador de Menu</span></b></div>
+        <div class="uno"> <button (click)="handleAction()">Agregar Menu</button></div>
+    </div>
+</mat-card>
+<hr>
+<mat-card>
+    <div class="principal">
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+    </div>
+    
+</mat-card>
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef>Imagen</th>
+            <td mat-cell *matCellDef="let element"><img src="http://localhost/api_restaurant/uploads/{{element.image}}" ></td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name_category">
+            <th mat-header-cell *matHeaderCellDef>Categoria</th>
+            <td mat-cell *matCellDef="let element">{{element.name_category}}</td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">{{element.price}}</td>
+        </ng-container>
+        <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Promocion descuento</th>
+            <td mat-cell *matCellDef="let element">{{getnumber(element.price,element.discount)}}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+            <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="Edit" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="Delete" (click)="handleDeleteAction(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+  
+                <mat-slide-toggle mat-icon-button color="primary" (change)="onChange($event.checked,element.id)" matTooltip="Activate or Desactivate Product" [checked]="element.status"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[9,10,20]" showFirstLastButtons></mat-paginator>
+</div>

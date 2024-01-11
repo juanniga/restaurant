@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">Agregar Clientes</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="customerForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="customerForm.controls.name.touched && customerForm.controls.name.invalid">
+                        <span *ngIf="customerForm.controls.name.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="customerForm.controls.name.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Correo</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-error *ngIf="customerForm.controls.email.touched && customerForm.controls.email.invalid">
+                        <span *ngIf="customerForm.controls.email.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="customerForm.controls.email.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Numero de Celular</mat-label>
+                    <input matInput formControlName="contactNumber" required>
+                    <mat-error *ngIf="customerForm.controls.contactNumber.touched && customerForm.controls.contactNumber.invalid">
+                        <span *ngIf="customerForm.controls.contactNumber.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="customerForm.controls.contactNumber.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(customerForm.valid && customerForm.dirty)">Agregar Cliente</button>
+    <button mat-raised-button color="primary" mat-dialog-close> Cerrar</button>
+</mat-dialog-actions>

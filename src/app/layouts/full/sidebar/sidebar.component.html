@@ -1,0 +1,16 @@
+<mat-nav-list appAccordion>
+    
+    <span fxShow="false" fxShow.gt-xs *ngFor="let perfils of perfil">
+       
+        <img src="http://localhost/api_restaurant/uploads/{{perfils.logo}}" alt="" width="300px" height="200px" align="center">
+    </span>
+    <hr>
+    <mat-list-item appAccordionlink *ngFor="let menuitems of menuItem.getMenuItems()" routerLinkActive="selected" group="{{menuitems.state}}">
+        
+        <a appAccordionToggle [routerLink]="['/restaurant',menuitems.state]">
+            <mat-icon >{{menuitems.icon}}</mat-icon>
+            <span>{{menuitems.name}}</span>
+            <span fxFlex></span>
+        </a>
+    </mat-list-item>
+</mat-nav-list>

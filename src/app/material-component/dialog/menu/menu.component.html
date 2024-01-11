@@ -1,0 +1,103 @@
+<mat-toolbar mat-toolbar-single-row color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">{{dialogData.action}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="menuForm">
+        <div fxFlex fxLayout="column">
+            <!--<div fxLayout="row wrap" >
+                
+                    <img  [src]="imgUrl" width="50px" height="50px">
+                    <button type="button" mat-raised-button (click)="fileInpu.click()"><mat-icon>edit</mat-icon></button>
+                    <input hidden accept="image/*" (change)="selectImage($event)" #fileInpu type="file" id="file">
+                
+                
+                <div *ngIf="val_image; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <img  [src]="imgUrl" width="50px" height="50px">
+                        <button type="button" mat-raised-button (click)="fileInpu.click()"><mat-icon>edit</mat-icon></button>
+                        <input hidden accept="image/*" (change)="selectImage($event)" #fileInpu type="file" id="file">
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <img  [src]="imgUrl" width="50px" height="50px">
+                        <input class="input_btn" type="file" accept="image/*" (change)="selectImage($event)">
+                    </ng-template>
+                
+                
+
+            </div>-->
+            
+            <div fxLayout="row wrap">
+                
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="menuForm.controls.name.touched && menuForm.controls.name.invalid">
+                        <span *ngIf="menuForm.controls.name.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="menuForm.controls.name.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="categoryId">
+                        <mat-option *ngFor="let category of category" [value]="category.id">{{category.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row wrap">
+                
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Precio</mat-label>
+                    <input matInput formControlName="price" required type="number" >
+                    <mat-error *ngIf="menuForm.controls.price.touched && menuForm.controls.price.invalid">
+                        <span *ngIf="menuForm.controls.price.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="menuForm.controls.price.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Descuento en porcentage de 1 a 99%</mat-label>
+                    <input matInput formControlName="discount" type="number" min="0" >
+                    <mat-error *ngIf="menuForm.controls.discount.touched && menuForm.controls.discount.invalid">
+                        <span *ngIf="menuForm.controls.discount.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="menuForm.controls.discount.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                
+                
+                
+            </div>
+            
+            
+            <div fxLayout="row wrap">
+                
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput formControlName="description" required>
+                    <mat-error *ngIf="menuForm.controls.description.touched && menuForm.controls.description.invalid">
+                        <span *ngIf="menuForm.controls.description.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="menuForm.controls.description.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="image">
+                <div>
+                    <img  [src]="imgUrl" width="50px" height="50px">
+                </div>
+                <div class="btn">
+                    <button type="button" mat-raised-button (click)="fileInpu.click()"><mat-icon>edit</mat-icon></button>
+                    <input hidden accept="image/*" (change)="selectImage($event)" #fileInpu type="file" id="file">
+                </div>
+                
+                
+                
+            </div>
+        
+            
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(menuForm.valid && menuForm.dirty)">{{action}}</button>
+    <button mat-raised-button color="primary" mat-dialog-close> Cerrar</button>
+</mat-dialog-actions>

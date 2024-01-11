@@ -1,0 +1,108 @@
+<mat-toolbar mat-toolbar-single-row color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">Editar Perfil</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="profileForm">
+        <div fxFlex fxLayout="column">
+            <!--<div fxLayout="row wrap" >
+                <div *ngIf="val_image; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <img  [src]="imgUrl" width="50px" height="50px">
+                        <input class="input_btn" type="file" accept="image/*" (change)="selectImage($event)">
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <img  [src]="imgUrl" width="50px" height="50px">
+                        <input class="input_btn" type="file" accept="image/*" (change)="selectImage($event)">
+                    </ng-template>
+                
+                
+
+            </div>
+        -->
+            <!--<div fxLayout="row wrap">
+                
+                <div class="image">
+                    <div class="logo">
+                        <img [src]="imgUrl" width="100px">
+                    </div>
+                    <div class="button">
+                        <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+                        <input hidden accept="image/*" (change)="selectImage($event)" #fileInput type="file" id="file">
+                    </div>
+                </div>
+                <div class="image">
+                    <div class="logo">
+                        <img [src]="imgUrl" width="100px">
+                    </div>
+                    <div class="button">
+                        <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+                        <input hidden accept="image/*" (change)="selectImage($event)" #fileInput type="file" id="file">
+                    </div>
+                </div>
+            </div>-->
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name_rest" required>
+                    <mat-error *ngIf="profileForm.controls.name_rest.touched && profileForm.controls.name_rest.invalid">
+                        <span *ngIf="profileForm.controls.name_rest.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="profileForm.controls.name_rest.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Ubicacion</mat-label>
+                    <input matInput formControlName="location" required>
+                    <mat-error *ngIf="profileForm.controls.location.touched && profileForm.controls.location.invalid">
+                        <span *ngIf="profileForm.controls.location.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="profileForm.controls.location.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                
+            </div>
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Especialidad</mat-label>
+                    <input matInput formControlName="specialty" required>
+                    <mat-error *ngIf="profileForm.controls.specialty.touched && profileForm.controls.specialty.invalid">
+                        <span *ngIf="profileForm.controls.specialty.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="profileForm.controls.specialty.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+            </div>
+           
+         
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Celular</mat-label>
+                    <input matInput formControlName="phone" required type="number">
+                    <mat-error *ngIf="profileForm.controls.phone.touched && profileForm.controls.phone.invalid">
+                        <span *ngIf="profileForm.controls.phone.errors.required">Este dato es obligatorio</span>
+                        <span *ngIf="profileForm.controls.phone.errors.pattern">Este dato es invalido</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    
+                    <mat-label>Hora de Apertura</mat-label>
+                    <input type="time" matInput formControlName="start_t" name="week" min="09:00" max="18:00">
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex>
+                    
+                    <mat-label>Hora de Cierre</mat-label>
+                    <input type="time" matInput formControlName="end_t" name="week" min="09:00" max="18:00">
+                </mat-form-field>
+
+            </div>
+
+
+
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()">Actualizar</button>
+    <button mat-raised-button color="primary" mat-dialog-close> Cerrar</button>
+</mat-dialog-actions>

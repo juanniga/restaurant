@@ -1,0 +1,94 @@
+.container{
+    position: relative;
+    margin-bottom: 10px;
+    top: 30px;
+   
+}
+.main{
+    position: relative;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.main .image img{
+    width: 100px;
+}
+.container_principal{
+    position: relative;
+}
+.likes{
+    display: flex;
+}
+.likes h3{
+    font-weight:900;
+}
+.btn_two button{
+    padding: 5px;
+    margin-left: 5px;
+}
+p{
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    
+}
+.multimedia{
+    position: relative;
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    
+}
+.multimedia .qr img{
+    width: 250px;
+    height: 250px;
+    margin-left: 10px;
+    border-radius: 10PX;
+}
+.multimedia .dos{
+    margin-left: 20px;
+}
+mat-icon{
+    color: #0a0a0a;
+}
+.multimedia .btn{
+    position: relative;
+    display: block;
+    
+}
+.multimedia .btn button{
+    
+    margin: 5px;
+    background-color: rgb(4, 139, 218);
+    
+}
+.multimedia .btn button mat-icon{
+    
+    color: antiquewhite;
+    
+}
+h4{
+    font-family:'Franklin Gothic Medium', Arial;
+    font-size: 18px;
+}
+/*#save_qr{
+    background-color: #0a0a0a;
+}*/
+.multimedia .btn  .selected-button_qr {
+    background-color: rgb(4, 139, 218);
+    color: white;
+  }
+  
+  .multimedia .btn  .deselected-button_qr{
+    background-color: gray;
+    color: black;
+  }
+  .multimedia .btn  .selected-button_img {
+    background-color: rgb(4, 139, 218);
+    color: white;
+  }
+  
+  .multimedia .btn  .deselected-button_img{
+    background-color: gray;
+    color: black;
+  }

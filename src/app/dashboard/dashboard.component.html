@@ -1,0 +1,35 @@
+<body>
+    <mat-card>
+        <b class="principal"><span>Dashboard</span></b>
+    </mat-card>
+    <br>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Menus</h2>
+                    <h1 class="title">{{data?.menu}}</h1>
+                    <p><Button class="button"  [routerLink]="['/restaurant/menu']">Vista Menu</Button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Ventas</h2>
+                    <h1 class="title">{{data?.sale}}</h1>
+                    <p><Button class="button" [routerLink]="['/restaurant/order']">Vista Ventas</Button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Bill</h2>
+                    <h1 class="title">{{data?.menu}}</h1>
+                    <p><Button class="button b-btn" [routerLink]="['/restaurant/bill']">View Bill</Button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

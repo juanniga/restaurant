@@ -1,0 +1,32 @@
+.float-right{
+    float: right;
+}
+mat-card{
+    padding: 20px;
+}
+table{
+    width: 100%;;
+}
+
+mat-slide-toggle{
+    position: relative;
+    top: 50%;
+    transform: translateY(-40%);
+    color: #10fd4b;
+}
+::ng-deep .mat-slide-toggle-bar {
+    height: 27px !important;
+    width: 46px !important;
+    border-radius:  36px !important;
+    background-color: #10fd4b;
+}::ng-deep .matslide-toggle-thumb{
+    top: 6px !important;
+    right: -6px !important;
+    position: relative;
+}
+img{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+}

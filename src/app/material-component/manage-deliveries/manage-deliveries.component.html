@@ -1,0 +1,94 @@
+<mat-card>
+    <div class="principal">
+        <div><b><span>Vista de Entregas</span></b></div>
+        
+    </div>
+
+
+</mat-card>
+<hr>
+<mat-card>
+    <div class="principal">
+        <div><b><span>Busqueda de Ordenes Por:</span></b></div>
+    </div>
+    <div class="principal">
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+    </div>
+</mat-card>
+<hr>
+<mat-card>
+    
+    <form [formGroup]="manageDeliveriesForm">
+        <div class="contenedor">
+            <div class="item-1">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Fecha Inicio</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="initialDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                
+            </div>
+            <div class="item-1">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Fecha Final</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="finalDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </div>
+         
+            <div class="item-1">
+                <button mat-raised-button  type="submit" (click)="searchTo()"><mat-icon color="warn" >search</mat-icon></button>
+                <button mat-raised-button  type="submit" (click)="filePdf()"><mat-icon color="accent">summarize</mat-icon></button>
+                <button mat-raised-button  type="submit" (click)="cleaning()"><mat-icon color="warn">cleaning_services</mat-icon></button>
+                
+            </div>
+            
+        </div>
+    </form>
+</mat-card>
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.status}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let element">{{element.date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="all_total">
+            <th mat-header-cell *matHeaderCellDef>Total</th>
+            <td mat-cell *matCellDef="let element">{{element.all_total}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="view">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="warn" matTooltip="View" (click)="handleViewDeliveries(element)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="View" (click)="handleViewPdf(element)">
+                    <mat-icon>summarize</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" matTooltip="View" (click)="handleViewDelete(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[9,10,20]" showFirstLastButtons></mat-paginator>
+</div>

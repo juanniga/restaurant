@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="title-center">Iniciar Sesion</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typhography">
+    <form [formGroup]="loginForm">
+        <div fxFlex fxLayout="column">
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName="email" required type="email">
+                <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                    <span *ngIf="loginForm.controls.email.errors.required">Este campo es obligatorio</span>
+                    <span *ngIf="loginForm.controls.email.errors.pattern">Este dato es invalid</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" required type="password">
+                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                    <span *ngIf="loginForm.controls.password.errors.required">Este campo es obligatorio</span>
+                    <span *ngIf="loginForm.controls.password.errors.pattern">Este dato es invalid</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" class="title-center" type="submit" (click)="handleSubmit()" [disabled]="!(loginForm.valid && loginForm.dirty)">Iniciar</button>
+    <button mat-raised-button color="primary" class="title-center" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

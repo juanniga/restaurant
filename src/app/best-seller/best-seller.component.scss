@@ -1,0 +1,256 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body{
+  
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./../../assets/img/primero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+
+}
+.banner{
+  position: relative;
+  display: block;
+}
+.banner{
+  
+  position: relative;
+  margin: auto;
+  align-items: center;
+  height: 100vh;
+  
+}
+.banner h2{
+  
+  position: relative;
+  margin: auto;
+  align-items: center;
+  color: rgb(250, 43, 43);
+  top: 25%;
+  transform: translateY(50%); 
+  
+}
+
+
+.card_container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  
+ 
+}
+.card_container .card_img{
+  position: relative;
+  width: 400px;
+  height: 350px;
+  background: url('./../../assets/img/lily-banse--YHSwy6uqvk-unsplash.jpg')center/cover no-repeat;
+}
+.card_content{
+  position: relative;
+  width: 400px;
+  height: 350px;
+  display: block;
+  background: #fff;
+  
+}
+
+h2{
+  color: aliceblue;
+  font-size: 30px;
+  text-align: center;
+}
+
+.formulary{
+  position: relative;
+  padding: 15px;
+  width: 90%;
+  margin: auto;
+}
+.formulary .form{
+  padding: 15px;
+  width: 300px;
+}
+
+.label, .txt_user{
+  display: block;
+  font-size: 15px;
+  margin: 10px 12px;
+  
+}
+.txt_user input{
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid #e3dddd;
+  border-left: 1px solid #e3dddd;
+  border-radius: 8px;
+}
+.formular .label button{
+  background: rgba(247, 1, 39, 0.76);
+  border-radius: 4px;   
+  cursor: pointer;
+  padding: 10px 50px ;
+  color: aliceblue;
+  border: none;
+  padding: 10px;
+}
+.formulary input[type=submit]:hover{
+  opacity: 0.6;
+}
+.submit{
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+.label{
+  color: #6f6f6f;
+  font-size: 20px;
+  font-family: monospace;
+}
+.card_content h3{
+  text-align: center;
+  color: #939292;
+  padding: 5px 0 0 0;
+  font-size: 25px;
+}
+
+a{
+  text-decoration: none;
+  color: #393434;
+  cursor: pointer;
+}
+.label h4{
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.black-snackbar {
+  background: #2196F3;
+}
+/*
+.formulary{
+  position: absolute;
+  display: block;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.form_row{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+}
+form select, form input{
+  display: block;
+  width: 100%;
+  margin: 10px 12px;
+  font-size:15px ;
+  padding:5px;
+  border: none;
+  border-bottom:  1px solid #e7eae7;
+  border-left:  1px solid #e7eae7;
+  
+  
+  
+}
+.card_content h3{
+  text-align: center;
+  color: #5d5d5d;
+  padding: 25px 0 10px 0;
+  font-size: 26px;
+}
+/*.banner{
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/img/petr-sevcovic-qE1jxYXiwOA-unsplash.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding-bottom: 20px;
+}
+.card_container{
+  display: grid;
+  grid-template-columns: 420px 420px;
+}
+.card_img{
+  background: url("/img/lily-banse--YHSwy6uqvk-unsplash.jpg") center/cover;
+  background-repeat: no-repeat;
+}
+.banner h2{
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+.card_content{
+  background: #fff;
+  height: 330px;
+}
+.card_content h3{
+  text-align: center;
+  color: #000;
+  padding: 25px 0 10px 0;
+  font-size: 26px;
+}
+.form_row{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+form select, form input{
+  display: block;
+  width: 100%;
+  margin: 15px 12px;
+  padding: 5px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e4e8e8;
+  font-weight: 300;
+}
+form input[type=submit]{
+  color: #fff;
+  background: rgba(247, 1, 39, 0.76);
+  border-radius: 4px;   
+  cursor: pointer;
+  padding: 10px 0;
+}
+form input[type=submit]:hover{
+  opacity: 0.8;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
